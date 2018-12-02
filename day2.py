@@ -13,18 +13,13 @@ def part1():
     return twos * threes
 
 def part2():
-    for box_a in inp:
-        for box_b in inp:
-            diff_idx = None
-            diff_count = 0
-            for idx in range(len(box_a)):
-                if box_a[idx] != box_b[idx]:
-                    diff_idx = idx
-                    diff_count += 1
-                    if diff_count > 1:
-                        break
-            if diff_count == 1:
-                return box_a[:diff_idx] + box_a[diff_idx+1:]
+    seen = set()
+    for box in inp:
+        for idx in range(len(box)):
+            sub = box[:idx] + box[idx+1:]
+            if (idx, sub) in seen:
+                return sub
+            seen.add((idx, sub))
 
 print(part1())
 print(part2())
