@@ -4,8 +4,8 @@ import numpy as np
 with open('input/day3.txt') as f:
     inp = []
     for r in f.readlines():
-        r = re.split('[^0-9]+', r)
-        inp.append([int(d) for d in r if d])
+        r = re.findall('([0-9]+)', r)
+        inp.append([int(d) for d in r])
 
 fabric = np.zeros((1000, 1000))
 
