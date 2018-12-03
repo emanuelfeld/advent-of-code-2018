@@ -16,7 +16,7 @@ def part1():
 
 def part2():
     for n, x, y, dx, dy in inp:
-        if np.all(fabric[x:x+dx, y:y+dy] == 1):
+        if np.max(fabric[x:x+dx, y:y+dy]) == 1:
             return n
 
 print(part1())
