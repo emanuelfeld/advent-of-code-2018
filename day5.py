@@ -10,6 +10,7 @@ for lower in string.ascii_lowercase:
     toggle_case[lower] = upper
     toggle_case[upper] = lower
 
+
 def part1(s):
     stack = []
     for char in s:
@@ -34,12 +35,14 @@ def part1(s):
 #             l = len(s)
 #     return l
 
+
 def part2(s):
     lengths = []
     for char in string.ascii_lowercase:
         s_no_char = re.sub(char, '', s, flags=re.IGNORECASE)
         lengths.append(part1(s_no_char))
     return min(lengths)
+
 
 print(part1(inp))
 print(part2(inp))
